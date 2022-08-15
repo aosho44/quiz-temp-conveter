@@ -18,8 +18,20 @@ Then("I see {float}° {units}", function (expectedTemp, _) {
   expectHelper();
 });
 
-// Then("I see a blank string ", function(){
-//   expect expectHelper = () => {
+Given("I have {float} input", function (temp2Convert) {
+  this.temp2Convert = temp2Convert.toString;
+});
+
+Then("I see a blank {string}", function (expectedTemp) {
+  const expectHelper = () => {
+    expect(this.convertedTemp).toBe(expectedTemp.toString(""));
+  };
+
+  expectHelper();
+});
+
+// Then("I see a blank string ", function (expectedTemp, _) {
+//   const expectHelper = () => {
 //     expect(this.convertedTemp).toBe(expectedTemp.toString());
 //   };
 
